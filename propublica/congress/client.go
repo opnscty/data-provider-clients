@@ -14,7 +14,7 @@ var baseURL = url.URL{
 	Path:   "congress/v1",
 }
 
-// [TODO] Can't return pointer here??
+// [TODO] Why can't I return a pointer here?
 func Client() gohttp.Client {
 	headers := make(http.Header)
 	headers.Set("X-API-KEY", os.Getenv("PROPUBLICA_CONGRESS_API_KEY"))
