@@ -1,6 +1,7 @@
 package congress
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"strconv"
@@ -78,7 +79,7 @@ type Member struct {
 
 // Get congress members by congress number and chamber
 // "/{congress}/{chamber}/members.{json/xml}"
-func GetMembers(congress int, chamber string) []Result {
+func GetMembers(ctx context.Context, congress int, chamber string) []Result {
 	endpoint := "https://api.propublica.org/congress/v1/" + fmt.Sprint(congress) +
 		"/" + chamber + "/members.json"
 

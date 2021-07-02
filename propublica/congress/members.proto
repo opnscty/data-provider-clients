@@ -1,0 +1,73 @@
+syntax = "proto3";
+package congress;
+
+// Parameters the server takes in:
+message MemberParams {
+    int32 congress      = 1;
+    string chamber      = 2;
+}
+
+// What the service returns:
+message PPCResponse {
+    string status       = 1;
+    string copyright    = 2;
+    Result results      = 3;
+}
+
+message Result {
+    string congress     = 1;
+    string chamber      = 2;
+    string numresults   = 3;
+    string members      = 4;
+}
+
+message Member {
+    string id               = 1;
+    string title            = 2;
+    string short_title      = 3;
+    string api_uri          = 4;
+    string first_name       = 5;
+    string middle_name      = 6;
+    string last_name        = 7;
+    // interface{} suffix = 8;
+    string date_of_birth    = 9;
+    string gender           = 10;
+    string party            = 11;
+    // interface{} leadership_role = 12;
+    string twitter_account  = 13;
+    string facebook_account = 14;
+    string youtube_account  = 15;
+    string govtrack_id      = 16;
+    string cspan_id         = 17;
+    string votesmart_id     = 18;
+    string crp_id           = 19;
+    string google_entity_id = 20;
+    string fec_candidate_id = 21;
+    string url              = 22;
+    string rss_url          = 23;
+    string contact_form     = 24;
+    string in_office        = 25;
+    // interface{} cook_pvi = 26;
+    float dw_nominate       = 27;
+    // interface ideal_point = 28;
+    string seniority            = 29;
+    string next_election        = 30;
+    int32 total_votes           = 31;
+    int32 missed_votes          = 33;
+    int32 total_present         = 34;
+    string last_updated         = 35;
+    string ocd_id               = 36;
+    string office               = 37;
+    string phone                = 38;
+    string fax                  = 39;
+    string state                = 40;
+    string state_rank           = 41;
+    string lis_id               = 42;
+    float missed_votes_pct      = 43;
+    float votes_with_party_pct  = 44;
+    float votes_against_party_pct = 45;
+}
+
+service MembersService {
+    rpc GetMembers(MemberParams) returns (Result);
+}
