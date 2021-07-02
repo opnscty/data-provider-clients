@@ -1,5 +1,3 @@
+# data-provider-clients
 
-
-https://github.com/unitedstates/images
-
-https://api.opencorporates.com/documentation/API-Reference
+Client layer for all relevant data-providing APIs. Uses opnscty/go-httpclient. 
